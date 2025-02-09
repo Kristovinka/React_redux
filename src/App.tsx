@@ -9,7 +9,7 @@ import Home from 'pages/UsersApp/Home/Home'
 import Users from 'pages/UsersApp/Users/Users'
 
 //homeworks
-
+import Homework17 from 'homeworks/Homework17/Homework17'
 //consultations
 
 const App = () => {
@@ -22,6 +22,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/users' element={<Users/>}/>
+          <Route path='/homework17' element={<Homework17/>}/>
           <Route path='*' element='Page not found'/>
         </Routes>
       </Layout>
