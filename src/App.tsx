@@ -11,6 +11,7 @@ import Lesson18 from 'lessons/Lesson18/Lesson18'
 
 //homeworks
 import Homework17 from 'homeworks/Homework17/Homework17'
+import AdviceRandomizer from 'components/AdviceRandomizer/AdviceRandomizer'
 
 //consultations
 
@@ -27,6 +28,7 @@ const App = () => {
           <Route path='/lesson17' element={<Lesson17 />} />
           <Route path='/homework17' element={<Homework17 />} />
           <Route path='/lesson18' element={<Lesson18 />} />
+          <Route path='/AdviceRandomizer' element={<AdviceRandomizer />} />
           <Route path='*' element='Page not found' />
         </Routes>
       </Layout>
