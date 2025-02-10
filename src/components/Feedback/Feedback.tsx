@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import Button from "../Button/Button";
 import {
   FeedbackContainer,
@@ -7,24 +5,42 @@ import {
   LikeDislikeContainer,
   Result
 } from "./styles";
+import { useAppDispatch, useAppSelector } from "store/hooks";
+import { feedbackActions, feedbackSelectors } from "store/redux/feedback/feedbackSlice";
 
-function Feedback() {
-  const [likes, setLikes] = useState<number>(0);
-  const [dislike, setDislike] = useState<number>(0);
-  console.log("render");
+ function Feedback() {
+    const likes = useAppSelector(feedbackSelectors.likesValue)
+    const dislike = useAppSelector(feedbackSelectors.dislikesValue)
 
-  const addLike = (): void => {
-    setLikes((prevValue) => prevValue + 1);
-  };
+    const dispatch = useAppDispatch()
+  
+    const addLike = ()=>{
+      dispatch(feedbackActions.like())
+    }
+  
+    const addDislike = ()=>{
+      dispatch(feedbackActions.dislike())
+    }
 
-  const addDislike = (): void => {
-    setDislike((prevValue) => prevValue + 1);
-  };
+    const resetResults = ()=>{
+      dispatch(feedbackActions.resetResults())
+    }
+//   const [likes, setLikes] = useState<number>(0);
+//   const [dislike, setDislike] = useState<number>(0);
+//   console.log("render");
 
-  const resetResults = (): void => {
-    setLikes(0);
-    setDislike(0);
-  };
+//   const addLike = (): void => {
+//     setLikes((prevValue) => prevValue + 1);
+//   };
+
+//   const addDislike = (): void => {
+//     setDislike((prevValue) => prevValue + 1);
+//   };
+
+//   const resetResults = (): void => {
+//     setLikes(0);
+//     setDislike(0);
+//   };
 
   return (
     <FeedbackContainer>
